@@ -1,0 +1,12 @@
+torch
+torchvision
+open-clip-torch
+transformers
+ultralytics
+fastapi
+uvicorn
+python-multipart
+Pillow
+numpy
+scikit-learn
+ollama

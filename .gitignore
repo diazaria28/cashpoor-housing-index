@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environment
+.venv/
+.venv_yolo/
+venv/
+env/
+
+# Dataset dan foto pribadi
+dataset/
+foto/
+grounding_dino_dataset/
+
+# Bobot dan cache model
+weights/
+*.pt
+*.pth
+*.onnx
+*.ts
+*.bin
+*.safetensors
+
+# Hasil proses
+hasil/
+hasil_*/
+outputs/
+runs/
+*.log
+
+# Gradio dan file sementara
+.gradio/
+temp/
+tmp/
+*.tmp
+
+# Sistem dan editor
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Tunnel
+cloudflared*

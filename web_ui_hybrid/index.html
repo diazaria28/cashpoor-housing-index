@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <title>Observasi Kondisi Rumah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+  <a class="brand" href="#" aria-label="PNM">
+  <img
+    src="/assets/PNM_logo.svg"
+    alt="Permodalan Nasional Madani"
+    class="pnm-logo"
+  />
+</a>
+
+  <nav class="top-navigation">
+    <a href="#cards">Penilaian</a>
+    <a href="#summaryTitle">Ringkasan</a>
+
+    <button
+      id="themeButton"
+      class="icon-button"
+      type="button"
+      aria-label="Ganti tema"
+    >
+      ☾
+    </button>
+  </nav>
+</header>
+
+<main class="shell">
+  <section class="intro panel">
+    <div class="hero-content">
+        <span class="badge">OPENCLIP + GROUNDING DINO · LOCAL AI</span>
+
+      <p class="hero-greeting">Selamat datang, Account Officer!</p>
+
+      <h2>
+        Analisis Kondisi Rumah
+        <span>Lebih Cepat dengan AI</span>
+      </h2>
+
+      <p class="hero-description">
+        Unggah foto komponen rumah dan dapatkan rekomendasi skor
+        secara otomatis. Hasil tetap dapat diperiksa dan dikoreksi
+        oleh Account Officer.
+      </p>
+
+      <div class="hero-features">
+        <span>✓ Analisis cepat</span>
+        <span>✓ Bisa dikoreksi</span>
+        <span>✓ Data diproses lokal</span>
+      </div>
+
+      <a class="hero-button" href="#cards">
+        Mulai Penilaian
+        <span>→</span>
+      </a>
+    </div>
+
+    <div class="hero-visual">
+      <span class="shape shape-circle"></span>
+      <span class="shape shape-square"></span>
+      <span class="shape shape-triangle"></span>
+
+        <div class="house-illustration" aria-hidden="true">
+    <svg viewBox="0 0 360 300">
+      <defs>
+        <linearGradient id="roofGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff9a6d" />
+          <stop offset="1" stop-color="#ff625f" />
+        </linearGradient>
+
+        <linearGradient id="wallGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffffff" />
+          <stop offset="1" stop-color="#dce5ff" />
+        </linearGradient>
+
+        <linearGradient id="doorGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#5269f5" />
+          <stop offset="1" stop-color="#2939c8" />
+        </linearGradient>
+      </defs>
+
+      <!-- Bayangan -->
+      <ellipse
+        cx="180"
+        cy="275"
+        rx="142"
+        ry="18"
+        fill="#18238f"
+        opacity="0.2"
+      />
+
+      <!-- Atap -->
+      <path
+        d="M35 134 L180 22 L325 134 L297 166 L180 75 L63 166 Z"
+        fill="url(#roofGradient)"
+      />
+
+      <!-- Dinding -->
+      <path
+        d="M72 137 L180 54 L288 137 V267
+          Q288 281 274 281
+          H86
+          Q72 281 72 267 Z"
+        fill="url(#wallGradient)"
+      />
+
+      <!-- Jendela -->
+      <rect
+        x="105"
+        y="160"
+        width="62"
+        height="58"
+        rx="12"
+        fill="#779cff"
+        stroke="#ffffff"
+        stroke-width="10"
+      />
+
+      <path
+        d="M136 160 V218 M105 189 H167"
+        stroke="#ffffff"
+        stroke-width="7"
+      />
+
+      <!-- Pintu -->
+      <path
+        d="M203 151
+          Q203 137 217 137
+          H252
+          Q266 137 266 151
+          V281
+          H203 Z"
+        fill="url(#doorGradient)"
+      />
+
+      <!-- Gagang pintu -->
+      <circle cx="252" cy="210" r="6" fill="#ffd629" />
+
+      <!-- Pondasi -->
+      <rect
+        x="52"
+        y="265"
+        width="256"
+        height="18"
+        rx="9"
+        fill="#c4d0fb"
+      />
+    </svg>
+
+  </div>
+
+      <div class="floating-result result-one">
+        <span>✓</span>
+        <div>
+          <strong>Atap terdeteksi</strong>
+          <small>Skor 3</small>
+        </div>
+      </div>
+
+      <div class="floating-result result-two">
+        <span>⚡</span>
+        <div>
+          <strong>Analisis cepat</strong>
+          <small>&lt; 3 detik</small>
+        </div>
+      </div>
+
+      <div
+  class="score-ring"
+  id="scoreDonut"
+  aria-live="polite"
+>
+  <div class="score-inner">
+    <div class="score-number">
+      <strong id="totalScore">0</strong>
+      <span>/18</span>
+    </div>
+
+    <small>skor sementara</small>
+  </div>
+</div>
+    </div>
+  </section>
+
+    <section class="identity panel">
+      <label>ID rumah<input id="houseId" placeholder="Contoh: RUMAH-001" autocomplete="off"></label>
+      <label>Jumlah anggota keluarga<input id="members" type="number" min="1" step="1" placeholder="Contoh: 4"></label>
+    </section>
+
+    <nav class="progress" aria-label="Kemajuan pengisian">
+      <div class="progress-track"><span id="progressBar"></span></div>
+      <p><strong id="completedCount">0</strong> dari 6 komponen selesai</p>
+    </nav>
+
+    <section id="cards" class="cards"></section>
+
+    <section class="summary panel">
+      <div>
+        <p class="eyebrow">RINGKASAN</p>
+        <h2 id="summaryTitle">Lengkapi seluruh komponen</h2>
+        <p id="summaryText">Skor akan diperbarui setiap kali hasil AI diterima atau dikoreksi.</p>
+      </div>
+      <button id="saveButton" class="primary large" type="button" disabled>Simpan hasil</button>
+      <a id="downloadLink" class="download hidden">Unduh JSON</a>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="/assets/app.js"></script>
+</body>
+</html>
